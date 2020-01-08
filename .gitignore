@@ -5,3 +5,8 @@ two-sum/.settings/
 two-sum/target/
 two-sum/.classpath
 two-sum/.project
+
+longest-substring-without-repeating-characters/.settings/
+longest-substring-without-repeating-characters/target/
+longest-substring-without-repeating-characters/.classpath
+longest-substring-without-repeating-characters/.project

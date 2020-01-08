@@ -6,7 +6,7 @@ import java.util.List;
 public class Solution {
 
 	public static void main(String[] args) {
-		int[] nums = { 3, 3 };
+		int[] nums = { 3,2, 4 };
 		int target = 6;
 		for (int i : twoSum(nums, target)) {
 			System.out.println(i);
@@ -14,38 +14,47 @@ public class Solution {
 	}
 
 	public static int[] twoSum(int[] nums, int target) {
-		int diff = 0;
 
 		List<Integer> vals = new ArrayList<Integer>();
 		for (int num : nums) {
 			vals.add(num);
 		}
 
-		List<Integer> indexesWithDifferentValues = new ArrayList<Integer>();
-		List<Integer> indexesWithSameValues = new ArrayList<Integer>();
-		for (int i = 0; i < nums.length; i++) {
-
-			diff = target - nums[i];
-
-			if (diff - nums[i] == 0) {
-				indexesWithSameValues.add(i);
-			}
-
-			if (vals.contains(diff) && diff != vals.get(i)) {
-				indexesWithDifferentValues.add(i);
-			}
-		}
-
 		int[] solution = { 0, 0 };
-
-		if (indexesWithSameValues.size() == 2) {
-			solution[0] = indexesWithSameValues.get(0);
-			solution[1] = indexesWithSameValues.get(1);
-		} else {
-			solution[0] = indexesWithDifferentValues.get(0);
-			solution[1] = indexesWithDifferentValues.get(1);
+		char j = 0;
+		for (int i = 0; i < vals.size(); i++) {
+			
+			int diff = target - vals.get(i);
+			
+			vals.remove(i);
+			if (vals.contains(diff)) {
+				j++;
+				if(j==1) {
+					solution[0] = i;
+				}
+				if(j == 2) {
+					solution[1] = i;
+					break;
+				}
+			}
+			vals.add(i, nums[i]);
 		}
-
 		return solution;
+        
+        /* Map<Integer, Integer> h = new HashMap<Integer, Integer>();
+
+		for (int i = 0; i < nums.length; i++) {
+			int n = target - nums[i];
+
+			if (h.containsKey(nums[i])) {
+				int[] arr = { h.get(nums[i]), i };
+				return arr;
+			} else {
+				h.put(n, i);
+			}
+
+		}
+		int[] arr = { 0, 0 };
+		return arr; */
 	}
 }
