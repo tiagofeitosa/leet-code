@@ -10,3 +10,8 @@ longest-substring-without-repeating-characters/.settings/
 longest-substring-without-repeating-characters/target/
 longest-substring-without-repeating-characters/.classpath
 longest-substring-without-repeating-characters/.project
+
+median-of-two-sorted-arrays/.settings/
+median-of-two-sorted-arrays/target/
+median-of-two-sorted-arrays/.classpath
+median-of-two-sorted-arrays/.project
